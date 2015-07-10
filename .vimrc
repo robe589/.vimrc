@@ -22,7 +22,8 @@ NeoBundle 'szw/vim-tags'
 
 "自動で閉じる
 NeoBundle 'tpope/vim-endwise'
-
+"rubyの保存時に自動文法チェック
+NeoBundle 'scrooloose/syntastic'
 call neobundle#end()
 
 NeoBundleCheck
@@ -33,13 +34,14 @@ set nocompatible
 set number
 set title
 set autoindent
-syntax on
+"syntax on
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set smartindent
 set showmatch
 set laststatus=3
+set tags
 nnoremap <Space>. :<C-u>tabedit $MYVIMRC
 "ノーマルモードで半角/全角ボタンを無効化
 "nnoremap <silent> <C-^> <Nop>
@@ -63,4 +65,9 @@ if !exists('g:neocomplete#force_omni_input_patterns')
 	  let g:neocomplete#force_omni_input_patterns = {}
   endif
   let g:neocomplete#force_omni_input_patterns.ruby = '[^.*\t]\.\w*\|\h\w*::'
-
+"fold(折りたたみ設定)
+set foldmethod=manual
+"autocmd FileType ruby :set foldmethod=indent
+autocmd FileType ruby :set foldmethod=syntax
+autocmd FileType ruby :set foldlevel=0
+autocmd FileType ruby :set foldnestmax=2
