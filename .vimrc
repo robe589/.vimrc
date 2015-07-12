@@ -34,14 +34,13 @@ set nocompatible
 set number
 set title
 set autoindent
-"syntax on
+syntax on
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set smartindent
 set showmatch
 set laststatus=3
-set tags
 nnoremap <Space>. :<C-u>tabedit $MYVIMRC
 "ノーマルモードで半角/全角ボタンを無効化
 "nnoremap <silent> <C-^> <Nop>
